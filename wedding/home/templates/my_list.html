@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Vendor</th>
+      <th scope="col">Type</th>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Cross</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  	{% for a in object.vendors.all %}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{a.vendor.type}}</td>
+      <td>{{a.vendor.title}}</td>
+      <td>{{a.vendor.address}}</td>
+      <td>{{a.vendor.contact}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

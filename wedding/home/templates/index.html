@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators" id="hero-carousel-indicators">
+        </ol>
+         
+         
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide 1 -->
+          {% for slider in sliders %}
+          <div class="carousel-item active">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animated fadeInDown">Welcome to <span>{{slider.name}}</span></h2>
+                <p class="animated fadeInUp">Make your wedding planning easy and special.</p>
+                <a href="" class="btn-get-started animated fadeInUp">Read More</a>
+              </div>
+            </div>
+          </div>
+          <style>
+            .carousel-inner .carousel-item{
+              background: url({{slider.image.url}});
+                      background-size: cover;
+                      background-position: center center;
+                   }
+          </style>
+         
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="{{slider.rank}}">
+          <span class="carousel-control-prev-icon icofont-rounded-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="{{slider.rank}}">
+          <span class="carousel-control-next-icon icofont-rounded-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Featured Section ======= -->
+    <section id="featured" class="featured">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="icon-box">
+              <i class="icofont-clip-board"></i>
+              <h3><a href="">Manage Your Checklist</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <i class="icofont-search"></i>
+              <h3><a href="">Select vendors.</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <i class="icofont-ui-contact-list"></i>
+              <h3><a href="">Contact us to feature vendors.</a></h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Featured Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <img src="{%static 'assets/img/index1.jpeg' %}" class="img-fluid" alt="" style="height:400px;">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h3>Make Your Weddding Simple But Significant.</h3>
+            <hr/>
+            <ul>
+              <li><i class="icofont-check-circled"></i>Find the best wedding vendors with thousands of trusted reviews.</li>
+              <li><i class="icofont-check-circled"></i>Manage your wedding with a checklist.</li>
+            </ul>
+            <p>
+             PlanMyWedding is an Nepali Wedding Planning Website where you can find the best wedding vendors, with related informations and reviews at the click of a button. Whether you are looking for the beautiful and affordable Venues, or looking for the top photographers, or just some ideas and inspiration for your wedding. PlanMyWedding can help you solve your wedding planning through its unique features. With a checklist, detailed vendor list, - you won't need to spend hours planning a wedding anymore.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Our Services</h2>
+        </div>
+       
+
+       <div class="row">
+        {% for type in types %}
+        <div class="col-lg-4 col-md-6 mt-1">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-home-circle"></i></div>
+              <h4><a href="{% url 'home:type' type.type_name %}">{{type.type_name}}</a></h4>
+            </div>
+          </div>
+        {% endfor %}
+
+  
+        </div>
+
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Clients</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="owl-carousel clients-carousel">
+          <img src="assets/img/clients/client-1.png" alt="">
+          <img src="assets/img/clients/client-2.png" alt="">
+          <img src="assets/img/clients/client-3.png" alt="">
+          <img src="assets/img/clients/client-4.png" alt="">
+          <img src="assets/img/clients/client-5.png" alt="">
+          <img src="assets/img/clients/client-6.png" alt="">
+          <img src="assets/img/clients/client-7.png" alt="">
+          <img src="assets/img/clients/client-8.png" alt="">
+        </div>
+
+      </div>
+    </section><!-- End Clients Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+ {% endblock %}
